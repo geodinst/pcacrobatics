@@ -3,22 +3,22 @@ Live ISO was prepared with Cubic (https://github.com/PJ-Singh-001/Cubic) from th
 The following was built/installed:
 
 - [PDAL](./scripts/build_and_install_pdal.sh) 
-  https://github.com/PDAL/PDAL
+     https://github.com/PDAL/PDAL
 - [CloudCompare](./scripts/build_and_install_cloud_compare.sh) 
-  https://github.com/CloudCompare/CloudCompare
+     https://github.com/CloudCompare/CloudCompare
 - [GRASS](./scripts/build_and_install_grass.sh) 
-  https://github.com/OSGeo/grass
+     https://github.com/OSGeo/grass
 - [Micromamba](./scripts/install_micromamba.sh) 
-  https://github.com/mamba-org/micromamba-releases
+     https://github.com/mamba-org/micromamba-releases
   - QGIS was installed in micromamba environment
 
 - [VSCodium](./scripts/install_vscodium.sh) 
-  https://github.com/VSCodium/vscodium
+     https://github.com/VSCodium/vscodium
   - extensions were installed in refernce environment and copied manually: `cp -r ../.vscode-oss /home/lubuntu`
 - [Menu entries](./scripts/add-foss4g-menu.sh)
 - [Menu application launchers](./scripts/add-desktop-shortcuts.sh)
 - [Whitebox tools](./scripts/download_and_unpack_whitebox_tools.sh) 
-  https://github.com/jblindsay/whitebox-tools
+     https://github.com/jblindsay/whitebox-tools
 - [Turn off autoupdates](./scripts/turn_off_auto_updates.sh) - this is not really working, auto updates are still pending
 
 Additionally, also some stuff to ease access to exFat drive was added:
