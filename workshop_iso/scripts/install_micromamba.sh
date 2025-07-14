@@ -14,7 +14,7 @@ micromamba run -n geo_env pip install pypotree
 
 micromamba activate geo_env
 
-micromamba install qgis=3.44.0
+micromamba install qgis=3.42.3 # we didn't use 3.44 because some pdal packages we initially installed were incompatible
 
 python -m ipykernel install --user --name geo_env --display-name "Python FOSS4G Workshop (geo_env)"
 
