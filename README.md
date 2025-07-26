@@ -1,5 +1,4 @@
 # Point-Cloud Acrobatics: From Raw LiDAR to Stunning 3D Visuals
-
 Materials for FOSS4g workshop - under construction
 
 ## Workshop Outline  
@@ -9,7 +8,10 @@ Moving beyond the basics, we’ll dig into powerful open-source workflows with [
 
 By integrating Python scripts with these specialized tools, you’ll discover how to automate complex processing chains and generate stunning outputs that bring your LiDAR data to life. While basic Python knowledge is helpful, it’s not mandatory — anyone eager to learn new techniques can follow along. By the end of this hands-on workshop, you’ll not only grasp the core concepts behind LiDAR data but also have the practical skills to handle and present it in exciting, visually compelling ways.
 
-The data used was downloaded from [the CLSS portal](https://www.clss.si), which provides LiDA data for Slovenia. The exact tiles used were:
+## Noteboooks
+- **PointCloudAcrobatics.ipynb**: Notebook used for the first part of the tutorial, focused on theory, data processing, and local point cloud visualization.
+
+The data used was downloaded from [the CLSS portal](https://www.clss.si), which provides LiDAR data for Slovenia. The exact tiles used were:
 - GKOT_461_100.laz
 - GKOT_462_100.laz
 - GKOT_461_101.laz
