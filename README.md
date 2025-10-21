@@ -10,6 +10,7 @@ By integrating Python scripts with these specialized tools, you’ll discover ho
 
 ## Noteboooks
 - **PointCloudAcrobatics.ipynb**: Notebook used for the first part of the tutorial, focused on theory, data processing, and local point cloud visualization.
+- **WebPointCloudAcrobatics.ipynb**: Notebook deals with some commonly used libraries for Web based point cloud visualization.
 
 The data used was downloaded from [the CLSS portal](https://www.clss.si), which provides LiDAR data for Slovenia. The exact tiles used were:
 - GKOT_461_100.laz
