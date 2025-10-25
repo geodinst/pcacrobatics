@@ -1,5 +1,6 @@
 # Point-Cloud Acrobatics: From Raw LiDAR to Stunning 3D Visuals
-Materials for FOSS4g workshop - under construction
+This workshop was initially prepared for FOSS4G Europe 2025 but used on many other occasions.
+We want this workshop to be live and updated, so feel free to contribute if better options rise up, new standards get publiushed and errors or typos are recognized.
 
 ## Workshop Outline  
 The workshop begins by exploring the [ASPRS standard](https://www.asprs.org/revisions-to-the-asprs-positional-accuracy-standards-for-geospatial-data-2023), helping you understand essential concepts like point classifications, return numbers, and other fundamental attributes that define LiDAR data. You’ll learn how to correctly interpret these attributes, assess data quality, and leverage them for more insightful analysis.
