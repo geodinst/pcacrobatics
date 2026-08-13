@@ -1,0 +1,16 @@
+name: pcl-qgis
+
+channels:
+  - conda-forge
+  - nodefaults
+
+dependencies:
+  # Coherent QGIS/PDAL generation available for Intel and Apple Silicon macOS.
+  - python=3.11
+  - qgis=3.40.3=py311*_2
+  - gdal=3.10.2=py311*_5
+  - pdal=2.8.4
+  - libpdal=2.8.4=*_1
+  - python-pdal=3.4.5=py311*_14
+  - hdf5=1.14.3=nompi_*_109
+  - tiledb=2.27.2

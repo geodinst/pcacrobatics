@@ -1,0 +1,40 @@
+name: pcl
+
+channels:
+  - https://grass-conda.isnew.info/
+  - conda-forge
+  - nodefaults
+
+dependencies:
+  # QGIS is separate on macOS because its Conda build requires an older stack.
+  - python=3.11
+  - grass-dev
+  - gdal=3.13.*
+  # Core includes the CLI and COPC/GDAL stages; TileDB is the extra plugin used.
+  - libpdal-core=2.10.*
+  - libpdal-tiledb=2.10.*
+  - python-pdal=3.5.5
+  - geopandas
+  - laspy
+  - lonboard
+  - matplotlib
+  - numpy
+  - pandas
+  - pyarrow
+  - scikit-image
+  - scikit-learn
+  - scipy
+  - tifffile
+  - tiledb-py
+  - whitebox
+  - ipykernel
+  - ipywidgets
+  - jupyterlab
+  - notebook
+  - pip
+  - setuptools
+  - wheel
+  - pip:
+      - pybabylonjs==1.6.3
+      # This package publishes a macOS wheel for Apple Silicon, not Intel.
+      - whitebox-workflows==2.0.6; platform_machine == "arm64"

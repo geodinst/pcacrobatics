@@ -1,0 +1,42 @@
+name: pcl
+
+channels:
+  - https://grass-conda.isnew.info/
+  - conda-forge
+  - nodefaults
+
+dependencies:
+  # Windows x86-64: keep QGIS, GRASS, GDAL, PDAL, and HDF5 on one ABI.
+  - python=3.11
+  - grass-dev
+  - qgis=3.44.11
+  - gdal=3.13.*
+  - pdal=2.10.2
+  - python-pdal=3.5.5
+  - hdf5=1.14.6=nompi_*
+  - libpdal-core=2.10.2=hd7c2432_3
+  - libpdal-hdf=2.10.2=h96e3a9f_3
+  - libpdal-icebridge=2.10.2=h99866fb_3
+  - geopandas
+  - laspy
+  - lonboard
+  - matplotlib
+  - numpy
+  - pandas
+  - pyarrow
+  - scikit-image
+  - scikit-learn
+  - scipy
+  - tifffile
+  - tiledb-py
+  - whitebox
+  - ipykernel
+  - ipywidgets
+  - jupyterlab
+  - notebook
+  - pip
+  - setuptools
+  - wheel
+  - pip:
+      - pybabylonjs==1.6.3
+      - whitebox-workflows==2.0.6
