@@ -78,6 +78,21 @@ micromamba run -n pcl-qgis qgis
 
 `whitebox-workflows` is included on Apple Silicon (`M1` and newer). Its current PyPI wheel is unavailable for Intel macOS.
 
+### Storage requirements
+
+Keep at least **15 GB of free disk space** for the workshop; **20 GB is recommended** while creating the environment because Conda and Micromamba retain downloaded packages in a cache.
+
+Measured on the complete Linux workshop run:
+
+- `pcl` environment: approximately **6.4 GB**
+- Four source LAZ files in `data/`: approximately **0.8 GB**
+- Four generated COPCs: approximately **0.6 GB**
+- TileDB array containing all **78,587,620 points**: approximately **1.5 GB**
+- GRASS project and other generated outputs: approximately **0.1 GB**
+- Repository data and generated results together: approximately **3 GB**
+
+Package-download caches require additional temporary space and vary by platform. They can be cleaned with the package manager after the environment has been created successfully.
+
 ### 4. Verify the environment
 
 From the activated `pcl` environment, run:

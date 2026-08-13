@@ -31,6 +31,7 @@ REQUIRED_IMPORTS = {
     "pyarrow": "pyarrow",
     "pybabylonjs": "pybabylonjs",
     "scipy": "scipy",
+    "sklearn": "scikit-learn",
     "skimage": "scikit-image",
     "tifffile": "tifffile",
     "tiledb": "tiledb-py",
