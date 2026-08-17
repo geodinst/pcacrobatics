@@ -105,19 +105,11 @@ Do not continue until this check passes. It verifies the workshop imports, GRASS
 
 ### 5. Choose your notebook interface
 
-Both options use the same `pcl` environment and workshop files. Choose one and test the notebook there. A browser-based Jupyter interface is the quickest route; VSCodium provides a larger development environment with better project navigation, editing, debugging, and source-control tools.
+Both options use the same `pcl` environment and workshop files. Choose one and test the notebook there. GRASS Jupyter is the quickest route; VSCodium provides a larger development environment with better project navigation, editing, debugging, and source-control tools.
 
-#### Option A: Jupyter in your browser
+#### Option A: GRASS Jupyter in your browser
 
-On **Windows**, launch JupyterLab directly from the activated `pcl` environment in the repository directory:
-
-```powershell
-jupyter lab PointCloudAcrobatics.ipynb
-```
-
-Use the `pcl` kernel if JupyterLab asks you to select one. The notebook initializes the GRASS project through `workshop_setup.py`; the GRASS GUI's integrated Jupyter launcher is not required on Windows.
-
-On **Linux and macOS**, you can also initialize the workshop project and launch GRASS 8.6 from the repository directory:
+This is the simplest option and requires no editor extensions. First initialize the workshop project, then launch GRASS 8.6 from the repository directory:
 
 ```bash
 python -c "from workshop_setup import get_workshop; get_workshop()"
@@ -131,7 +123,17 @@ In GRASS:
 3. Click **Open Notebook in Browser**.
 4. Open `PointCloudAcrobatics.ipynb`.
 
-GRASS starts Jupyter with the active workshop environment and project.
+> **Windows note:** In the current GRASS 8.6 Windows conda build, the **Jupyter Notebook** toolbar button is for some reason not present, although the same GRASS 8.6 conda installation on Linux does provide it.
+>
+> You can still launch Jupyter directly from the **GRASS Console**. Since GRASS was started from the repository directory, simply enter:
+>
+> ```bash
+> jupyter notebook
+> ```
+>
+> Jupyter will open in your web browser with the repository directory as its working directory. Open `PointCloudAcrobatics.ipynb` and continue with the workshop.
+
+GRASS starts Jupyter with the active workshop environment and project, so it is ready to use with very little setup.
 
 #### Option B: VSCodium
 
