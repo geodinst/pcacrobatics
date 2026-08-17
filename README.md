@@ -30,7 +30,7 @@ Alternatively, download the repository as a ZIP from [GitHub](https://github.com
 
 ### 2. Add the data
 
-Download the [prepared workshop data placeholder](https://app.gis.si/point-cloud-acrobatics/workshop-data.zip) and extract these four source tiles directly into `data/`:
+Download the [prepared workshop data](https://app.gis.si/point-cloud-acrobatics/workshop-data.zip) and extract these four source tiles directly into `data/`:
 
 - `GKOT_461_100.laz`
 - `GKOT_462_100.laz`
@@ -38,8 +38,6 @@ Download the [prepared workshop data placeholder](https://app.gis.si/point-cloud
 - `GKOT_462_101.laz`
 
 The first notebook converts them to COPC under `results/copc/`. Point-cloud files and generated results are intentionally excluded from Git. The same expected layout is documented in `data/README.md`.
-
-**The data URL is a placeholder and must be replaced with the published workshop archive before distribution.**
 
 ### 3. Create the Python environment
 
