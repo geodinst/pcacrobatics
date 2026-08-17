@@ -30,7 +30,7 @@ Alternatively, download the repository as a ZIP from [GitHub](https://github.com
 
 ### 2. Add the data
 
-Download the [prepared workshop data](https://app.gis.si/point-cloud-acrobatics/workshop-data.zip) and extract these four source tiles directly into `data/`:
+Download the [prepared workshop data](https://app.gis.si/point-cloud-acrobatics/data.zip) and extract these four source tiles directly into `data/`:
 
 - `GKOT_461_100.laz`
 - `GKOT_462_100.laz`
