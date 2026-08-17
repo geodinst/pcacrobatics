@@ -1,6 +1,6 @@
 # Workshop Data
 
-Download the prepared workshop data from the [workshop data placeholder](https://example.org/point-cloud-acrobatics/workshop-data.zip) and extract these files directly into this directory:
+Download the prepared workshop data from the [workshop data](https://app.gis.si/point-cloud-acrobatics/data.zip) and extract these files directly into this directory:
 
 - `GKOT_461_100.laz`
 - `GKOT_462_100.laz`
