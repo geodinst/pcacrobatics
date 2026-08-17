@@ -50,12 +50,15 @@ micromamba create --channel-priority strict -f environment.yml
 micromamba activate pcl
 ```
 
-Windows x86-64 uses `environment-windows.yml`:
+Windows x86-64 uses `environment-windows.yml` and one post-install compatibility step for the current GRASS 8.6 development build:
 
 ```powershell
 micromamba create --channel-priority strict -f environment-windows.yml
 micromamba activate pcl
+python setup_windows.py
 ```
+
+The Windows environment includes `llvm-openmp` and `libopenblas`, which are required by native modules in the current `grass-dev` build. `setup_windows.py` creates `libomp140.x86_64.dll` from Conda's `libomp.dll` when that compatibility DLL is missing. The script is safe to run again and does nothing when the compatibility DLL already exists. The workshop does not use `g.extension`, so a C compiler is not required.
 
 macOS on Intel or Apple Silicon uses `environment-macos.yml` for processing:
 
@@ -98,15 +101,23 @@ From the activated `pcl` environment, run:
 python test_env.py
 ```
 
-Do not continue until this check passes. It verifies the workshop imports, GRASS, PDAL plugin loading, and the required point-cloud drivers.
+Do not continue until this check passes. It verifies the workshop imports, GRASS Python packages and native GRASS modules, PDAL plugin loading, the required point-cloud drivers, and QGIS when it is part of the platform environment.
 
 ### 5. Choose your notebook interface
 
-Both options use the same `pcl` environment and workshop files. Choose one and test the notebook there. GRASS Jupyter is the quickest route; VSCodium provides a larger development environment with better project navigation, editing, debugging, and source-control tools.
+Both options use the same `pcl` environment and workshop files. Choose one and test the notebook there. A browser-based Jupyter interface is the quickest route; VSCodium provides a larger development environment with better project navigation, editing, debugging, and source-control tools.
 
-#### Option A: GRASS Jupyter in your browser
+#### Option A: Jupyter in your browser
 
-This is the simplest option and requires no editor extensions. First initialize the workshop project, then launch GRASS 8.6 from the repository directory:
+On **Windows**, launch JupyterLab directly from the activated `pcl` environment in the repository directory:
+
+```powershell
+jupyter lab PointCloudAcrobatics.ipynb
+```
+
+Use the `pcl` kernel if JupyterLab asks you to select one. The notebook initializes the GRASS project through `workshop_setup.py`; the GRASS GUI's integrated Jupyter launcher is not required on Windows.
+
+On **Linux and macOS**, you can also initialize the workshop project and launch GRASS 8.6 from the repository directory:
 
 ```bash
 python -c "from workshop_setup import get_workshop; get_workshop()"
@@ -120,7 +131,7 @@ In GRASS:
 3. Click **Open Notebook in Browser**.
 4. Open `PointCloudAcrobatics.ipynb`.
 
-GRASS starts Jupyter with the active workshop environment and project, so it is ready to use with very little setup.
+GRASS starts Jupyter with the active workshop environment and project.
 
 #### Option B: VSCodium
 
@@ -177,6 +188,7 @@ Before the workshop, confirm that:
 - The repository is cloned or extracted with its directory structure intact.
 - The four required LAZ files are in `data/`.
 - The correct platform YAML created the `pcl` environment.
+- On Windows, `python setup_windows.py` completed successfully.
 - `python test_env.py` passes.
 - `PointCloudAcrobatics.ipynb` opens and the context cell runs in your chosen interface.
 - CloudCompare is installed separately as described below.

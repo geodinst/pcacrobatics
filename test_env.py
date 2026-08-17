@@ -121,10 +121,63 @@ def check_grass_python() -> str | None:
             sys.path.insert(0, str(python_path))
         importlib.import_module("grass.script")
         importlib.import_module("grass.jupyter")
+        importlib.import_module("grass.tools")
     except Exception as error:
         return f"GRASS Python: {type(error).__name__}: {error}"
 
     print(f"[OK] GRASS Python: {python_path}")
+    return None
+
+
+def check_windows_grass_runtime_files() -> str | None:
+    if sys.platform != "win32":
+        return None
+
+    bin_dir = Path(sys.prefix).resolve() / "Library" / "bin"
+    required = (
+        bin_dir / "libomp140.x86_64.dll",
+        bin_dir / "openblas.dll",
+    )
+    missing = [path.name for path in required if not path.is_file()]
+    if missing:
+        return (
+            "Windows GRASS runtime file(s) missing: "
+            + ", ".join(missing)
+            + ". Run: python setup_windows.py"
+        )
+
+    print("[OK] Windows GRASS runtime DLLs")
+    return None
+
+
+def check_grass_module(module: str, arguments: list[str]) -> str | None:
+    executable = shutil.which("grass")
+    if executable is None:
+        return "command not found: grass"
+
+    command = [
+        executable,
+        "--tmp-project",
+        "EPSG:3794",
+        "--exec",
+        module,
+        *arguments,
+    ]
+    try:
+        result = subprocess.run(
+            command,
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+    except (OSError, subprocess.SubprocessError) as error:
+        return f"GRASS module {module}: {type(error).__name__}: {error}"
+
+    if result.returncode != 0:
+        return f"GRASS module {module} returned {result.returncode}"
+
+    print(f"[OK] GRASS module: {module}")
     return None
 
 
@@ -150,6 +203,19 @@ def main() -> int:
     grass_failure = check_grass_python()
     if grass_failure:
         failures.append(grass_failure)
+
+    windows_runtime_failure = check_windows_grass_runtime_files()
+    if windows_runtime_failure:
+        failures.append(windows_runtime_failure)
+    else:
+        for module, arguments in (
+            ("g.region", ["-p"]),
+            ("r.in.pdal", ["--help"]),
+            ("r.out.gdal", ["--help"]),
+        ):
+            module_failure = check_grass_module(module, arguments)
+            if module_failure:
+                failures.append(module_failure)
 
     qgis = shutil.which("qgis")
     if qgis:

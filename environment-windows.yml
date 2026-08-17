@@ -17,6 +17,12 @@ dependencies:
   - libpdal-core=2.10.2=hd7c2432_3
   - libpdal-hdf=2.10.2=h96e3a9f_3
   - libpdal-icebridge=2.10.2=h99866fb_3
+
+  # Runtime libraries required by the current Windows grass-dev build.
+  # setup_windows.py creates the libomp140.x86_64.dll compatibility alias.
+  - llvm-openmp
+  - libopenblas
+
   - geopandas
   - laspy
   - lonboard
