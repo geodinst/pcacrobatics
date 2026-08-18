@@ -73,9 +73,9 @@ def get_workshop() -> Workshop:
     if not grass_project.exists():
         gs.create_project(path=grass_project, crs="EPSG:3794")
 
-    # Reuse an already active GRASS runtime instead of initializing it again.
-    # On Windows, a second setup.init() currently produces a duplicated GISBASE.
-    if gs.setup.runtime_env_is_active():
+    # On Windows, reuse an already active GRASS runtime instead of initializing
+    # it again because a second setup.init() currently duplicates GISBASE.
+    if sys.platform == "win32" and gs.setup.runtime_env_is_active():
         session = None
         tools = tools_class(overwrite=True)
     else:
