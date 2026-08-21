@@ -39,7 +39,13 @@ Download the [prepared workshop data](https://app.gis.si/point-cloud-acrobatics/
 
 The first notebook converts them to COPC under `results/copc/`. Point-cloud files and generated results are intentionally excluded from Git. The same expected layout is documented in `data/README.md`.
 
-### 3. Create the Python environment
+### 3. Optional: download the precomputed results
+
+During the workshop we will generate these results together, so you do **not** need to download them in advance. Still, you are very welcome to grab the [precomputed workshop results](https://app.gis.si/point-cloud-acrobatics/results.zip) beforehand. They are a handy fallback if your computer is not quite up for every heavier point-cloud processing step, and they let you continue with the later parts of the workshop without missing out.
+
+The ZIP file is about **2.3 GB**. Extract it into the repository so that the prepared outputs end up under `results/`, keeping the directory structure intact. You can also use the files to compare your own outputs with the prepared results. And if you are simply curious to see where we are heading, feel free to peek ahead!
+
+### 4. Create the Python environment
 
 The YAML files work with [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/), preferably through [Miniforge](https://github.com/conda-forge/miniforge), [Mamba](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html), and [Micromamba](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html). Micromamba is recommended. The workshop environment is always named `pcl`.
 
@@ -91,9 +97,9 @@ Measured on the complete Linux workshop run:
 - GRASS project and other generated outputs: approximately **0.1 GB**
 - Repository data and generated results together: approximately **3 GB**
 
-Package-download caches require additional temporary space and vary by platform. They can be cleaned with the package manager after the environment has been created successfully.
+Package-download caches require additional temporary space and vary by platform. They can be cleaned with the package manager after the environment has been created successfully. If you download the optional `results.zip` and keep the archive after extracting it, allow about **2.3 GB** of additional disk space.
 
-### 4. Verify the environment
+### 5. Verify the environment
 
 From the activated `pcl` environment, run:
 
@@ -103,7 +109,7 @@ python test_env.py
 
 Do not continue until this check passes. It verifies the workshop imports, GRASS Python packages and native GRASS modules, PDAL plugin loading, the required point-cloud drivers, and QGIS when it is part of the platform environment.
 
-### 5. Choose your notebook interface
+### 6. Choose your notebook interface
 
 Both options use the same `pcl` environment and workshop files. Choose one and test the notebook there. GRASS Jupyter is the quickest route; VSCodium provides a larger development environment with better project navigation, editing, debugging, and source-control tools.
 
@@ -168,7 +174,7 @@ Adjust the paths if Micromamba is installed elsewhere. Conda or Miniforge users 
 
 Open this repository in VSCodium, run `Python: Select Interpreter`, and select `pcl`. Open `PointCloudAcrobatics.ipynb`, click `Select Kernel`, and select the same `pcl` environment.
 
-### 6. Test your chosen interface
+### 7. Test your chosen interface
 
 Open `PointCloudAcrobatics.ipynb` in your preferred interface and run its workshop-context cell:
 
@@ -211,10 +217,6 @@ Do not substitute an unofficial Conda build because its GUI plugins and point-cl
 - **WebPointCloudAcrobatics.ipynb**: Notebook deals with some commonly used libraries for Web based point cloud visualization.
 
 The workshop data originated from the [CLSS portal](https://www.clss.si), which provides LiDAR data for Slovenia. The required filenames and installation location are listed in **Get Ready** and `data/README.md`.
-
-## Optional Potree installation
-
-Installing standalone Potree/PotreeConverter is not mandatory. The workshop is designed to demonstrate this part without requiring participants to install it, but participants who want to follow it interactively can install Potree/PotreeConverter separately. [Potree installation instructions placeholder](https://example.org/point-cloud-acrobatics/potree-setup).
 
 ## QGIS outside the Conda environment
 
